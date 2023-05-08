@@ -1,3 +1,3 @@
-# donkey-kong
+# UML Branch
 
-// OOP S1 2023 - MAJOR PROJECT
+// UML planning for major practical 
