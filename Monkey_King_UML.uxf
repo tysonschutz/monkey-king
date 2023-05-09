@@ -99,7 +99,7 @@ fg=black
 --
 
 --
-+ void boulder_movement()
+void boulder_movement()
 
 
 bg=white
@@ -109,7 +109,7 @@ fg=black
 --
 
 --
-+ void dart_movement()
+void dart_movement
 
 
 bg=white
@@ -118,7 +118,7 @@ fg=black
 --
 
 --
-+ void fire_spirit_movement()
+void fire_spirit_movement()
 
 
 bg=white
