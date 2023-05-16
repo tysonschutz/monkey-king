@@ -6,7 +6,7 @@
 using namespace sf;
 
 class Entity {
-private:
+protected:
   float x_pos;
   float y_pos;
   int height;
@@ -22,11 +22,5 @@ public:
   void set_width(int width);
   ~Entity();
 };
-
-
-
-
-
-
 
 #endif
