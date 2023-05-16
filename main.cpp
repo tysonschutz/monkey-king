@@ -8,9 +8,32 @@ int main() {
   // create the window with size "n x m" pixels
   RenderWindow window(VideoMode(1500, 1000), "Monkey King");
 
-  // create sprites here and set starting position, size and texture.
-  Entity mario(500,800,30,40,"mario_right.png");
-  
+  // create entities here and set starting position, size and texture.
+  // -- ENTITIES --
+  //PLATFORMS
+  Entity* platform1 = new Entity(40,600,33,70,"platform.png");
+
+  //MEDKITS
+
+
+  //BANDAGES
+
+
+  //COINS
+
+
+  //FINISH
+
+
+
+  // -- CHARACTERS --
+
+
+
+
+
+
+
   
   
 
@@ -25,17 +48,13 @@ int main() {
         window.close();
       }
 
-      if (Keyboard::isKeyPressed(Keyboard::Right)) {
-        
-      } else if (Keyboard::isKeyPressed(Keyboard::Left)) {
-        
-      }
+      
     }
 
     window.clear();
 
     // draw sprites here
-    window.draw(mario.get_sprite());
+    window.draw(platform1->get_sprite());
 
     window.display();
   }

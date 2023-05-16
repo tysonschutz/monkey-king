@@ -7,19 +7,20 @@ using namespace sf;
 
 class Entity {
 private:
-  int x_pos;
-  int y_pos;
+  float x_pos;
+  float y_pos;
   int height;
   int width;
   Sprite sprite;
   Texture entity_texture;
 public:
-  Entity(int x_pos, int y_pos, int height, int width, std::string texture_name);
+  Entity(float x_pos, float y_pos, int height, int width, std::string texture_name);
   Sprite get_sprite();
-  
-
-  
-
+  int get_height();
+  void set_height(int height);
+  int get_width();
+  void set_width(int width);
+  ~Entity();
 };
 
 
