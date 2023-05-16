@@ -1,0 +1,1 @@
+mario = 40x30 pixels
