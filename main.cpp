@@ -3,6 +3,7 @@
 
 #include "Character.h"
 #include "Entity.h"
+#include "Player.h"
 
 using namespace sf;
 
@@ -31,7 +32,9 @@ int main() {
   // FINISH
 
   // -- CHARACTERS --
-  Character* player = new Character(3, 40, 560, 40, 30, "mario_right.png");
+  Player* player = new Player(100, 3, 40, 560, 40, 30, "mario_right.png");
+
+
 
   // run the program as long as the window is open
   while (window.isOpen()) {
@@ -59,7 +62,7 @@ int main() {
         case Keyboard::W:
           player->move_up();
           break;
-        case Keyboard::S:
+        case Keyboard::S:      
           player->move_down();
           break;
 

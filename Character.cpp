@@ -11,18 +11,33 @@ float Character::get_movement_speed() {return movement_speed;};
 void Character::set_movement_speed(int _movement_speed) {
   movement_speed = _movement_speed;
 };
+
 void Character::move_right() {
   sprite.move(movement_speed,0);
 };
+
 void Character::move_left() {
   sprite.move(-movement_speed,0);
 };
+
 void Character::move_down() {
   sprite.move(0,movement_speed);
 };
+
 void Character::move_up() {
   sprite.move(0,-movement_speed);
 };
+
+bool Character::on_platform(float x_pos, float y_pos) {
+  // add logic
+
+
+
+
+};
+
+
+
 Character::~Character() {
 
 };

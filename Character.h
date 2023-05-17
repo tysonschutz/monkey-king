@@ -14,6 +14,7 @@ class Character : public Entity {
     void move_left();
     void move_down();
     void move_up();
+    bool on_platform(float x_pos, float y_pos);
     ~Character();
 };
 
