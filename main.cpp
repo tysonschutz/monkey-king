@@ -8,11 +8,11 @@
 using namespace sf;
 
 int main() {
+  const float fps = 60.0f;
+
   // create the window with size "n x m" pixels
   RenderWindow window(VideoMode(1500, 1000), "Monkey King");
-
-
-
+  window.setFramerateLimit(fps);
 
   // For when characters change direction or rotate
   Texture current_entity_texture;
@@ -20,16 +20,16 @@ int main() {
 
   // create entities here and set starting position, size and texture.
   // -- ENTITIES --
-  // PLATFORMS
-  Entity* platform1 = new Entity(40, 600, 33, 70, "platform.png");
+  // PLATFORMS - create 5 platforms
+  
 
-  // MEDKITS
+  // MEDKITS - create 1 medkit
 
-  // BANDAGES
+  // BANDAGES - create 3 bandages
 
-  // COINS
+  // COINS - 5 coins (1 each platform)
 
-  // FINISH
+  // FINISH - create 1 finish
 
   // -- CHARACTERS --
   Player* player = new Player(100, 3, 40, 560, 40, 30, "mario_right.png");
@@ -47,6 +47,8 @@ int main() {
         window.close();
       }
 
+
+      
       // movement and logic
       switch (event.key.code) {
         case Keyboard::D:
@@ -84,10 +86,12 @@ int main() {
     window.clear();
 
     // draw sprites here
-    window.draw(platform1->get_sprite());
+    
     window.draw(player->get_sprite());
     window.display();
   }
+
+  delete player;
 
   return 0;
 }
