@@ -12,23 +12,23 @@ int Player::get_health() { return health; };
 void Player::set_health(int _health) { health = _health; };
 
 // finish implementing logic
-bool Player::on_coin(Player player, Entity coin) {
-  if ((player.get_x_pos() == coin.get_x_pos()) ) {
+// bool Player::on_coin(Player player, Entity coin) {
+//   if ((player.get_x_pos() == coin.get_x_pos()) ) {
 
-  }
-};
+//   }
+// };
 
-bool Player::on_finish(Player player, Entity finish) {
+// bool Player::on_finish(Player player, Entity finish) {
 
-};
+// };
 
-bool Player::on_medkit(Player player, Entity medkit) {
+// bool Player::on_medkit(Player player, Entity medkit) {
 
-};
+// };
 
-bool Player::on_bandage(Player player, Entity bandage) {
+// bool Player::on_bandage(Player player, Entity bandage) {
 
-};
+// };
 
 // until here
 

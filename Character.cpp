@@ -28,13 +28,13 @@ void Character::move_up() {
   sprite.move(0,-movement_speed);
 };
 
-bool Character::on_platform(float x_pos, float y_pos) {
-  // add logic
+// bool Character::on_platform(float x_pos, float y_pos) {
+//   // add logic
 
 
 
 
-};
+// };
 
 
 
