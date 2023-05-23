@@ -1,4 +1,4 @@
 entity = height x width pixels
 ------------------------
 mario = 40x30 pixels
-platform = 70x33 pixels
+platform = 1400x33 pixels

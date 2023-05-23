@@ -15,19 +15,18 @@ int main() {
   window.setFramerateLimit(fps);
 
   // For when characters change direction or rotate
-  Texture current_entity_texture;
 
 
   // create entities here and set starting position, size and texture.
   // -- ENTITIES --
-  // PLATFORMS - create 5 platforms
+  // PLATFORMS - create 4 platforms
   
 
   // MEDKITS - create 1 medkit
 
-  // BANDAGES - create 3 bandages
+  // BANDAGES - create 2 bandages
 
-  // COINS - 5 coins (1 each platform)
+  // COINS - 5 coins (1 2nd platform, 2 3rd and 4th platform)
 
   // FINISH - create 1 finish
 
@@ -52,22 +51,13 @@ int main() {
       // movement and logic
       switch (event.key.code) {
         case Keyboard::D:
-          current_entity_texture.loadFromFile("mario_right.png");
-          player->get_sprite().setTexture(current_entity_texture);
-          player->move_right();
-          break;
+          
         case Keyboard::A:
-          current_entity_texture.loadFromFile("mario_left.png");
-          player->get_sprite().setTexture(current_entity_texture);          
-          player->move_left();
-          break;
+          
         case Keyboard::W:
-          player->move_up();
-          break;
+          
         case Keyboard::S:      
-          player->move_down();
-          break;
-
+          
         default:
           break;
       }
