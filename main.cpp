@@ -10,48 +10,64 @@ using namespace sf;
 int main() {
   // create the window with size "n x m" pixels
   RenderWindow window(VideoMode(1500, 1000), "Monkey King");
-  
+
   // create entities here and set starting position, size and texture.
   // -- ENTITIES --
   // PLATFORMS - create 5 platforms
-  Entity* platform1 = new Entity(750, 1000, 33, 1400, "Textures/platform.png"); // position set
-  Entity* platform2 = new Entity(750, 750, 33, 1400, "Textures/platform.png"); // position set
-  Entity* platform3 = new Entity(750, 500, 33, 1400, "Textures/platform.png"); // position set
-  Entity* platform4 = new Entity(750, 250, 33, 1400, "Textures/platform.png"); // position set
-  
+  Entity* platform1 =
+      new Entity(750, 1000, 33, 1400, "Textures/platform.png");  // position set
+  Entity* platform2 =
+      new Entity(750, 750, 33, 1400, "Textures/platform.png");  // position set
+  Entity* platform3 =
+      new Entity(750, 500, 33, 1400, "Textures/platform.png");  // position set
+  Entity* platform4 =
+      new Entity(750, 250, 33, 1400, "Textures/platform.png");  // position set
+
   // MEDKITS - create 1 medkit
-  Entity* medkit = new Entity(750, 467, 50, 50, "Textures/medkit.png"); // position set
+  Entity* medkit =
+      new Entity(750, 467, 50, 50, "Textures/medkit.png");  // position set
 
   // BANDAGES - create 2 bandages
-  Entity* bandage1 = new Entity(750, 717, 45, 80, "Textures/bandages.png"); // position set
-  Entity* bandage2 = new Entity(750, 217, 45, 80, "Textures/bandages.png"); // position set
+  Entity* bandage1 =
+      new Entity(750, 717, 45, 80, "Textures/bandages.png");  // position set
+  Entity* bandage2 =
+      new Entity(750, 217, 45, 80, "Textures/bandages.png");  // position set
 
   // COINS - 5 coins (changes each platform)
-  Entity* coin1 = new Entity(350, 717, 40, 29, "Textures/coin.png"); // position set
-  Entity* coin2 = new Entity(200, 467, 40, 29, "Textures/coin.png"); // position set
-  Entity* coin3 = new Entity(950, 467, 40, 29, "Textures/coin.png"); // position set
-  Entity* coin4 = new Entity(1000, 217, 40, 29, "Textures/coin.png"); // position set
-  Entity* coin5 = new Entity(350, 217, 40, 29, "Textures/coin.png"); // position set
+  Entity* coin1 =
+      new Entity(350, 717, 40, 29, "Textures/coin.png");  // position set
+  Entity* coin2 =
+      new Entity(200, 467, 40, 29, "Textures/coin.png");  // position set
+  Entity* coin3 =
+      new Entity(950, 467, 40, 29, "Textures/coin.png");  // position set
+  Entity* coin4 =
+      new Entity(1000, 217, 40, 29, "Textures/coin.png");  // position set
+  Entity* coin5 =
+      new Entity(350, 217, 40, 29, "Textures/coin.png");  // position set
 
   // FINISH - create 1 finish
-  Entity* finish = new Entity(100, 217, 107, 120, "Textures/finish.png"); // position set
+  Entity* finish =
+      new Entity(100, 217, 107, 120, "Textures/finish.png");  // position set
 
   // VINES - creat 3 total
-  Entity* ladder1 = new Entity(1300, 967, 250, 96, "Textures/ladder.png"); // position set
-  Entity* ladder2 = new Entity(200, 717, 250, 96, "Textures/ladder.png"); // position set
-  Entity* ladder3 = new Entity(1200, 467, 250, 96, "Textures/ladder.png"); // position set
+  Entity* ladder1 =
+      new Entity(1300, 967, 250, 96, "Textures/ladder.png");  // position set
+  Entity* ladder2 =
+      new Entity(200, 717, 250, 96, "Textures/ladder.png");  // position set
+  Entity* ladder3 =
+      new Entity(1200, 467, 250, 96, "Textures/ladder.png");  // position set
 
   // -- CHARACTERS --
   // Player - 1 player
-  Player* player = new Player(100, 3, 100, 967, 80, 60, "Textures/mario_right.png"); // position set
+  Player* player = new Player(100, 3, 100, 967, 80, 60, "Textures/mario_right.png");  // position set
 
   // -- Enemy --
   // DARTS - 6 total
-  Entity* dart1 = new Entity(1400, 897, 10, 50, "Textures/dart_left.png"); 
-  Entity* dart2 = new Entity(100, 647, 10, 50, "Textures/dart_right.png"); 
+  Entity* dart1 = new Entity(1400, 897, 10, 50, "Textures/dart_left.png");
+  Entity* dart2 = new Entity(100, 647, 10, 50, "Textures/dart_right.png");
 
   // BOULDERS - 8 total
-  Entity* boulder1 = new Entity(150, 217, 91, 101, "Textures/boulder.png"); 
+  Entity* boulder1 = new Entity(150, 217, 91, 101, "Textures/boulder.png");
 
   // run the program as long as the window is open
   while (window.isOpen()) {
@@ -64,8 +80,6 @@ int main() {
         window.close();
       }
 
-
-      
       // movement and logic
       // switch (event.key.code) {
       //   case Keyboard::D:
@@ -75,21 +89,19 @@ int main() {
       //     break;
       //   case Keyboard::A:
       //     current_entity_texture.loadFromFile("mario_left.png");
-      //     player->get_sprite().setTexture(current_entity_texture);          
+      //     player->get_sprite().setTexture(current_entity_texture);
       //     player->move_left();
       //     break;
       //   case Keyboard::W:
       //     player->move_up();
       //     break;
-      //   case Keyboard::S:      
+      //   case Keyboard::S:
       //     player->move_down();
       //     break;
 
       //   default:
       //     break;
       // }
-
-      
     }
 
     window.clear();
@@ -104,7 +116,7 @@ int main() {
     // -- MEDKIT --
     window.draw(medkit->get_sprite());
 
-    // -- BANDAGES -- 
+    // -- BANDAGES --
     window.draw(bandage1->get_sprite());
     window.draw(bandage2->get_sprite());
 
@@ -169,14 +181,13 @@ int main() {
 
   // -- PLAYER --
   delete player;
-  
+
   // -- BOULDERS --
   delete boulder1;
 
   // -- DARTS --
   delete dart1;
   delete dart2;
-
 
   return 0;
 }
