@@ -7,10 +7,6 @@
 
 using namespace sf;
 
-
-
-
-
 int main() {
   // create the window with size "n x m" pixels
   RenderWindow window(VideoMode(1500, 1000), "Monkey King");
@@ -18,10 +14,10 @@ int main() {
   // create entities here and set starting position, size and texture.
   // -- ENTITIES --
   // PLATFORMS - create 5 platforms
-  Entity* platform1 = new Entity(750, 1000, 33, 1400, "rockPlatform.png"); // position set
-  Entity* platform2 = new Entity(750, 750, 33, 1400, "rockPlatform.png"); // position set
-  Entity* platform3 = new Entity(750, 500, 33, 1400, "rockPlatform.png"); // position set
-  Entity* platform4 = new Entity(750, 250, 33, 1400, "rockPlatform.png"); // position set
+  Entity* platform1 = new Entity(750, 1000, 33, 1400, "platform.png"); // position set
+  Entity* platform2 = new Entity(750, 750, 33, 1400, "platform.png"); // position set
+  Entity* platform3 = new Entity(750, 500, 33, 1400, "platform.png"); // position set
+  Entity* platform4 = new Entity(750, 250, 33, 1400, "platform.png"); // position set
   
   // MEDKITS - create 1 medkit
   Entity* medkit = new Entity(750, 467, 50, 50, "medkit.png"); // position set
@@ -38,7 +34,7 @@ int main() {
   Entity* coin5 = new Entity(350, 217, 40, 29, "coin.png"); // position set
 
   // FINISH - create 1 finish
-  Entity* finish = new Entity(100, 217, 107, 120, "finishFlag.png"); // position set
+  Entity* finish = new Entity(100, 217, 107, 120, "finish.png"); // position set
 
   // VINES - creat 3 total
   Entity* ladder1 = new Entity(1300, 967, 250, 96, "ladder.png"); // position set
@@ -51,8 +47,8 @@ int main() {
 
   // -- Enemy --
   // DARTS - 6 total
-  Entity* dart1 = new Entity(1400, 897, 10, 50, "dartRight.png"); 
-  Entity* dart2 = new Entity(100, 647, 10, 50, "dartLeft.png"); 
+  Entity* dart1 = new Entity(1400, 897, 10, 50, "dart_left.png"); 
+  Entity* dart2 = new Entity(100, 647, 10, 50, "dart_right.png"); 
 
   // BOULDERS - 8 total
   Entity* boulder1 = new Entity(150, 217, 91, 101, "boulder.png"); 
@@ -138,8 +134,6 @@ int main() {
     // -- DARTS --
     window.draw(dart1->get_sprite());
     window.draw(dart2->get_sprite());
-
-
 
     window.display();
   }
