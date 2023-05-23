@@ -30,8 +30,18 @@ int main() {
 
   // FINISH - create 1 finish
 
+  // DART SHOOTER ENTITIES (no. changes depending on each level. 6 total)
+
   // -- CHARACTERS --
+ 
+  // -- Player -- (1 player)
   Player* player = new Player(100, 3, 40, 560, 40, 30, "mario_right.png");
+
+  // -- Enemy -- 
+  // DARTS (6 Total)
+
+
+  // BOULDERS (8 Total) 
 
 
 
@@ -45,12 +55,12 @@ int main() {
       if (event.type == Event::Closed) {
         window.close();
       }
-
-
       
       // movement and logic
       switch (event.key.code) {
         case Keyboard::D:
+
+        
           
         case Keyboard::A:
           
@@ -61,16 +71,6 @@ int main() {
         default:
           break;
       }
-
-      // if (Keyboard::isKeyPressed(Keyboard::D)) {
-      //   player->move_right();
-      // } else if (Keyboard::isKeyPressed(Keyboard::A)) {
-      //   player->move_left();
-      // } else if (Keyboard::isKeyPressed(Keyboard::W)) {
-      //   player->move_up();
-      // } else if (Keyboard::isKeyPressed(Keyboard::S)) {
-      //   player->move_down();
-      // }
     }
 
     window.clear();
@@ -81,6 +81,7 @@ int main() {
     window.display();
   }
 
+  // delete memory used by objects
   delete player;
 
   return 0;
