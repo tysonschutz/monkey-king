@@ -6,7 +6,7 @@ Entity::Entity(float _x_pos, float _y_pos, int _height, int _width,
   y_pos = _y_pos;
   height = _height;
   width = _width;
-  sprite.setOrigin(Vector2f(height / 2, width / 2));
+  sprite.setOrigin(Vector2f(width / 2, height));
   entity_texture.loadFromFile(texture_name);
   sprite.setTexture(entity_texture);
   sprite.setPosition(Vector2f(_x_pos, _y_pos));

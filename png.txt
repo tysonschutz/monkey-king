@@ -1,4 +1,12 @@
 entity = height x width pixels
 ------------------------
-mario = 40x30 pixels
-platform = 70x33 pixels
+mario = 80x60 pixels DONE
+platform = 33x1400 pixels DONE
+coin = 29x40 pixels DONE
+bandages = 45x80 pixels DONE
+medkit = 50x50 pixels DONE
+finsih = 107x120 pixels DONE
+ladder = 250x96 pixels DONE
+
+boulder = 91x101 pixels DONE
+dart = 10x50 pixels
