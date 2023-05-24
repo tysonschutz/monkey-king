@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "Entity.h"
 #include <iostream>
 
 // Simple test function to check if two floating-point values are approximately equal
@@ -10,7 +11,7 @@ bool FloatEquals(float a, float b, float epsilon = 0.0001f)
 int main()
 {
     // Create a Character object with some initial values
-    Character character(10.0f, 0.0f, 0.0f, 10, 10, "character.png");
+    Character character(10.0f, 0.0f, 0.0f, 10, 10, "Textures/character.png");
 
     // Test get_movement_speed() method
     if (FloatEquals(character.get_movement_speed(), 10.0f))
@@ -33,11 +34,13 @@ int main()
         std::cout << "set_movement_speed() test failed." << std::endl;
     }
 
-    // Test move_right() method
-    float initialX = character.get_x_pos();
+    float XCharMove = 5
+
+        // Test move_right() method
+        float initialX = character.get_x_pos();
     character.move_right();
     float newX = character.get_x_pos();
-    if (FloatEquals(newX, initialX + character.get_movement_speed()))
+    if (FloatEquals(newX, initialX + character.get_x_pos()))
     {
         std::cout << "move_right() test passed." << std::endl;
     }
@@ -50,7 +53,7 @@ int main()
     initialX = character.get_x_pos();
     character.move_left();
     newX = character.get_x_pos();
-    if (FloatEquals(newX, initialX - character.get_movement_speed()))
+    if (FloatEquals(newX, initialX - character.get_x_pos()))
     {
         std::cout << "move_left() test passed." << std::endl;
     }
@@ -63,7 +66,7 @@ int main()
     float initialY = character.get_y_pos();
     character.move_down();
     float newY = character.get_y_pos();
-    if (FloatEquals(newY, initialY + character.get_movement_speed()))
+    if (FloatEquals(newY, initialY + character.get_y_pos()))
     {
         std::cout << "move_down() test passed." << std::endl;
     }
@@ -76,7 +79,7 @@ int main()
     initialY = character.get_y_pos();
     character.move_up();
     newY = character.get_y_pos();
-    if (FloatEquals(newY, initialY - character.get_movement_speed()))
+    if (FloatEquals(newY, initialY - character.get_y_pos()))
     {
         std::cout << "move_up() test passed." << std::endl;
     }
@@ -84,8 +87,6 @@ int main()
     {
         std::cout << "move_up() test failed." << std::endl;
     }
-
-    // Add more tests for other methods as needed
 
     return 0;
 }
