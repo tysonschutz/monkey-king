@@ -6,13 +6,6 @@ Enemy::Enemy(int _damage, float movement_speed, float x_pos, float y_pos,
       damage = _damage;
 };
 
-Player Enemy::damage_player(Player player, Enemy enemy) {
-  int damage_to_player = player.get_health() - enemy.damage;
-  player.set_health(damage_to_player);
-
-  return player;
-};
-
 Enemy::~Enemy(){
 
 };

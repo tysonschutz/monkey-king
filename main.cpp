@@ -2,14 +2,18 @@
 #include <iostream>
 
 #include "Character.h"
+#include "Dart.h"
 #include "Entity.h"
 #include "Player.h"
+#include "Enemy.h"
 
 using namespace sf;
 
 int main() {
   // create the window with size "n x m" pixels
   RenderWindow window(VideoMode(1500, 1000), "Monkey King");
+  window.setFramerateLimit(
+      120);  // Limit to 60 frames per second (or any desired frame rate)
 
   // create entities here and set starting position, size and texture.
   // -- ENTITIES --
@@ -59,49 +63,87 @@ int main() {
 
   // -- CHARACTERS --
   // Player - 1 player
-  Player* player = new Player(100, 3, 100, 967, 80, 60, "Textures/mario_right.png");  // position set
+  Player* player = new Player(100, 0.3, 100, 967, 80, 60,
+                              "Textures/mario_right.png");  // position set
 
   // -- Enemy --
   // DARTS - 6 total
-  Entity* dart1 = new Entity(1400, 897, 10, 50, "Textures/dart_left.png");
-  Entity* dart2 = new Entity(100, 647, 10, 50, "Textures/dart_right.png");
+  Dart* dart1 = new Dart(15, 1, 1400, 897, 10, 50, "Textures/dart_left.png");
+  Dart* dart2 = new Dart(15, 1, 100, 647, 10, 50, "Textures/dart_right.png");
+  Dart* dart3 = new Dart(15, 1, 1400, 647, 10, 50, "Textures/dart_left.png");
+  Dart* dart4 = new Dart(15, 1, 100, 397, 10, 50, "Textures/dart_right.png");
+  Dart* dart5 = new Dart(15, 1, 1400, 397, 10, 50, "Textures/dart_left.png");
+  Dart* dart6 = new Dart(15, 1, 1400, 147, 10, 50, "Textures/dart_left.png");
 
-  // BOULDERS - 8 total
-  Entity* boulder1 = new Entity(150, 217, 91, 101, "Textures/boulder.png");
+  // Define the desired frame rate
+  const int frameRate = 120;
+  const Time frameTime = seconds(1.0f / frameRate);
+  Clock clock;
+  Time deltaTime;
 
   // run the program as long as the window is open
   while (window.isOpen()) {
-    // check all the window's events that were triggered since the last
-    // iteration of the loop
     Event event;
     while (window.pollEvent(event)) {
-      // "close requested" event: we close the window
       if (event.type == Event::Closed) {
         window.close();
       }
+    }
 
-      // movement and logic
-      // switch (event.key.code) {
-      //   case Keyboard::D:
-      //     current_entity_texture.loadFromFile("mario_right.png");
-      //     player->get_sprite().setTexture(current_entity_texture);
-      //     player->move_right();
-      //     break;
-      //   case Keyboard::A:
-      //     current_entity_texture.loadFromFile("mario_left.png");
-      //     player->get_sprite().setTexture(current_entity_texture);
-      //     player->move_left();
-      //     break;
-      //   case Keyboard::W:
-      //     player->move_up();
-      //     break;
-      //   case Keyboard::S:
-      //     player->move_down();
-      //     break;
+    deltaTime += clock.restart();
 
-      //   default:
-      //     break;
-      // }
+    // Handle player movement
+    while (deltaTime >= frameTime) {
+      if (Keyboard::isKeyPressed(Keyboard::D)) {
+        player->move_right();
+      }
+      if (Keyboard::isKeyPressed(Keyboard::A)) {
+        player->move_left();
+      }
+      // jump
+      if (Keyboard::isKeyPressed(Keyboard::W)) {
+        player->move_up();
+      }
+
+      if (player->on_ladder()) {
+        if (Keyboard::isKeyPressed(Keyboard::W)) {
+          player->move_up();
+        }
+        if (Keyboard::isKeyPressed(Keyboard::S)) {
+          player->move_down();
+        }
+      }
+      // dart rspawn
+      if (dart1->get_sprite().getPosition().x <= 0) {
+        dart1->respawn_right();
+      }
+      if (dart2->get_sprite().getPosition().x >= 1500) {
+        dart2->respawn_left();
+      }
+      if (dart3->get_sprite().getPosition().x <= 0) {
+        dart3->respawn_right();
+      }
+      if (dart4->get_sprite().getPosition().x >= 1500) {
+        dart4->respawn_left();
+      }
+      if (dart5->get_sprite().getPosition().x <= 0) {
+        dart5->respawn_right();
+      }
+      if (dart6->get_sprite().getPosition().x <= 0) {
+        dart6->respawn_right();
+      }
+      dart1->move_left();
+      dart2->move_right();
+      dart3->move_left();
+      dart4->move_right();
+      dart5->move_left();
+      dart6->move_left();
+
+      player->get_sprite().move(Vector2f(1000, 300));
+
+      deltaTime -= frameTime;
+
+      std::cout << player->on_ladder() << std::endl;
     }
 
     window.clear();
@@ -113,12 +155,12 @@ int main() {
     window.draw(platform3->get_sprite());
     window.draw(platform4->get_sprite());
 
-    // -- MEDKIT --
-    window.draw(medkit->get_sprite());
+    // // -- MEDKIT --
+    // window.draw(medkit->get_sprite());
 
-    // -- BANDAGES --
-    window.draw(bandage1->get_sprite());
-    window.draw(bandage2->get_sprite());
+    // // -- BANDAGES --
+    // window.draw(bandage1->get_sprite());
+    // window.draw(bandage2->get_sprite());
 
     // -- COINS --
     window.draw(coin1->get_sprite());
@@ -140,12 +182,14 @@ int main() {
     window.draw(player->get_sprite());
 
     // -- ENEMIES --
-    // -- BOULDERS --
-    window.draw(boulder1->get_sprite());
 
     // -- DARTS --
     window.draw(dart1->get_sprite());
     window.draw(dart2->get_sprite());
+    window.draw(dart3->get_sprite());
+    window.draw(dart4->get_sprite());
+    window.draw(dart5->get_sprite());
+    window.draw(dart6->get_sprite());
 
     window.display();
   }
@@ -182,12 +226,13 @@ int main() {
   // -- PLAYER --
   delete player;
 
-  // -- BOULDERS --
-  delete boulder1;
-
   // -- DARTS --
   delete dart1;
   delete dart2;
+  delete dart3;
+  delete dart4;
+  delete dart5;
+  delete dart6;
 
   return 0;
 }

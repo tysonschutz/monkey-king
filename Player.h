@@ -2,6 +2,7 @@
 #define PLAYER
 
 #include "Character.h"
+#include "Enemy.h"
 
 class Player : public Character {
   private:
@@ -12,10 +13,10 @@ class Player : public Character {
     int get_health();
     void set_health(int health);
     
-    bool on_coin(Player player, Entity coin);
-    bool on_finish(Player player, Entity finish);
-    bool on_medkit(Player player, Entity medkit);
-    bool on_bandage(Player player, Entity bandage);
+    bool on_coin();
+    bool on_finish();
+    // bool hit(Dart* dart);
+    bool on_ladder();
 
     ~Player();
 };
