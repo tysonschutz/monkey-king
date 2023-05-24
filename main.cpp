@@ -9,71 +9,72 @@
 
 using namespace sf;
 
-int main() {
+int main()
+{
   // create the window with size "n x m" pixels
   RenderWindow window(VideoMode(1500, 1000), "Monkey King");
   window.setFramerateLimit(
-      120);  // Limit to 60 frames per second (or any desired frame rate)
+      500); // Limit to 60 frames per second (or any desired frame rate)
 
   // create entities here and set starting position, size and texture.
   // -- ENTITIES --
   // PLATFORMS - create 5 platforms
-  Entity* platform1 =
-      new Entity(750, 1000, 33, 1400, "Textures/platform.png");  // position set
-  Entity* platform2 =
-      new Entity(750, 750, 33, 1400, "Textures/platform.png");  // position set
-  Entity* platform3 =
-      new Entity(750, 500, 33, 1400, "Textures/platform.png");  // position set
-  Entity* platform4 =
-      new Entity(750, 250, 33, 1400, "Textures/platform.png");  // position set
+  Entity *platform1 =
+      new Entity(750, 1000, 33, 1400, "Textures/platform.png"); // position set
+  Entity *platform2 =
+      new Entity(750, 750, 33, 1400, "Textures/platform.png"); // position set
+  Entity *platform3 =
+      new Entity(750, 500, 33, 1400, "Textures/platform.png"); // position set
+  Entity *platform4 =
+      new Entity(750, 250, 33, 1400, "Textures/platform.png"); // position set
 
   // MEDKITS - create 1 medkit
-  Entity* medkit =
-      new Entity(750, 467, 50, 50, "Textures/medkit.png");  // position set
+  Entity *medkit =
+      new Entity(750, 467, 50, 50, "Textures/medkit.png"); // position set
 
   // BANDAGES - create 2 bandages
-  Entity* bandage1 =
-      new Entity(750, 717, 45, 80, "Textures/bandages.png");  // position set
-  Entity* bandage2 =
-      new Entity(750, 217, 45, 80, "Textures/bandages.png");  // position set
+  Entity *bandage1 =
+      new Entity(750, 717, 45, 80, "Textures/bandages.png"); // position set
+  Entity *bandage2 =
+      new Entity(750, 217, 45, 80, "Textures/bandages.png"); // position set
 
   // COINS - 5 coins (changes each platform)
-  Entity* coin1 =
-      new Entity(350, 717, 40, 29, "Textures/coin.png");  // position set
-  Entity* coin2 =
-      new Entity(200, 467, 40, 29, "Textures/coin.png");  // position set
-  Entity* coin3 =
-      new Entity(950, 467, 40, 29, "Textures/coin.png");  // position set
-  Entity* coin4 =
-      new Entity(1000, 217, 40, 29, "Textures/coin.png");  // position set
-  Entity* coin5 =
-      new Entity(350, 217, 40, 29, "Textures/coin.png");  // position set
+  Entity *coin1 =
+      new Entity(350, 717, 40, 29, "Textures/coin.png"); // position set
+  Entity *coin2 =
+      new Entity(200, 467, 40, 29, "Textures/coin.png"); // position set
+  Entity *coin3 =
+      new Entity(950, 467, 40, 29, "Textures/coin.png"); // position set
+  Entity *coin4 =
+      new Entity(1000, 217, 40, 29, "Textures/coin.png"); // position set
+  Entity *coin5 =
+      new Entity(350, 217, 40, 29, "Textures/coin.png"); // position set
 
   // FINISH - create 1 finish
-  Entity* finish =
-      new Entity(100, 217, 107, 120, "Textures/finish.png");  // position set
+  Entity *finish =
+      new Entity(100, 217, 107, 120, "Textures/finish.png"); // position set
 
   // VINES - creat 3 total
-  Entity* ladder1 =
-      new Entity(1300, 967, 250, 96, "Textures/ladder.png");  // position set
-  Entity* ladder2 =
-      new Entity(200, 717, 250, 96, "Textures/ladder.png");  // position set
-  Entity* ladder3 =
-      new Entity(1200, 467, 250, 96, "Textures/ladder.png");  // position set
+  Entity *ladder1 =
+      new Entity(1300, 967, 250, 96, "Textures/ladder.png"); // position set
+  Entity *ladder2 =
+      new Entity(200, 717, 250, 96, "Textures/ladder.png"); // position set
+  Entity *ladder3 =
+      new Entity(1200, 467, 250, 96, "Textures/ladder.png"); // position set
 
   // -- CHARACTERS --
   // Player - 1 player
-  Player* player = new Player(100, 1, 100, 967, 80, 60,
-                              "Textures/mario_right.png");  // position set
+  Player *player = new Player(100, 1.5, 100, 967, 80, 60,
+                              "Textures/mario_right.png"); // position set
 
   // -- Enemy --
   // DARTS - 6 total
-  Dart* dart1 = new Dart(15, 1, 1400, 897, 10, 50, "Textures/dart_left.png");
-  Dart* dart2 = new Dart(15, 1, 100, 647, 10, 50, "Textures/dart_right.png");
-  Dart* dart3 = new Dart(15, 1, 1400, 647, 10, 50, "Textures/dart_left.png");
-  Dart* dart4 = new Dart(15, 1, 100, 397, 10, 50, "Textures/dart_right.png");
-  Dart* dart5 = new Dart(15, 1, 1400, 397, 10, 50, "Textures/dart_left.png");
-  Dart* dart6 = new Dart(15, 1, 1400, 147, 10, 50, "Textures/dart_left.png");
+  Dart *dart1 = new Dart(15, 1, 1400, 897, 10, 50, "Textures/dart_left.png");
+  Dart *dart2 = new Dart(15, 1, 100, 647, 10, 50, "Textures/dart_right.png");
+  Dart *dart3 = new Dart(15, 1, 1400, 647, 10, 50, "Textures/dart_left.png");
+  Dart *dart4 = new Dart(15, 1, 100, 397, 10, 50, "Textures/dart_right.png");
+  Dart *dart5 = new Dart(15, 1, 1400, 397, 10, 50, "Textures/dart_left.png");
+  Dart *dart6 = new Dart(15, 1, 1400, 147, 10, 50, "Textures/dart_left.png");
 
   // Define the desired frame rate
   const int frameRate = 120;
@@ -82,10 +83,13 @@ int main() {
   Time deltaTime;
 
   // run the program as long as the window is open
-  while (window.isOpen()) {
+  while (window.isOpen())
+  {
     Event event;
-    while (window.pollEvent(event)) {
-      if (event.type == Event::Closed) {
+    while (window.pollEvent(event))
+    {
+      if (event.type == Event::Closed)
+      {
         window.close();
       }
     }
@@ -93,43 +97,52 @@ int main() {
     deltaTime += clock.restart();
 
     // Handle player movement
-    while (deltaTime >= frameTime) {
-      if (Keyboard::isKeyPressed(Keyboard::D)) {
+    while (deltaTime >= frameTime)
+    {
+      if (Keyboard::isKeyPressed(Keyboard::D))
+      {
         player->move_right();
       }
-      if (Keyboard::isKeyPressed(Keyboard::A)) {
+      if (Keyboard::isKeyPressed(Keyboard::A))
+      {
         player->move_left();
       }
       // jump
-      if (Keyboard::isKeyPressed(Keyboard::W)) {
-        player->move_up();
-      }
 
-      if (player->on_ladder()) {
-        if (Keyboard::isKeyPressed(Keyboard::W)) {
+      if (player->on_ladder())
+      {
+        if (Keyboard::isKeyPressed(Keyboard::W))
+        {
           player->move_up();
         }
-        if (Keyboard::isKeyPressed(Keyboard::S)) {
+        if (Keyboard::isKeyPressed(Keyboard::S))
+        {
           player->move_down();
         }
       }
       // dart rspawn
-      if (dart1->get_sprite().getPosition().x <= 0) {
+      if (dart1->get_sprite().getPosition().x <= 0)
+      {
         dart1->respawn_right();
       }
-      if (dart2->get_sprite().getPosition().x >= 1500) {
+      if (dart2->get_sprite().getPosition().x >= 1500)
+      {
         dart2->respawn_left();
       }
-      if (dart3->get_sprite().getPosition().x <= 0) {
+      if (dart3->get_sprite().getPosition().x <= 0)
+      {
         dart3->respawn_right();
       }
-      if (dart4->get_sprite().getPosition().x >= 1500) {
+      if (dart4->get_sprite().getPosition().x >= 1500)
+      {
         dart4->respawn_left();
       }
-      if (dart5->get_sprite().getPosition().x <= 0) {
+      if (dart5->get_sprite().getPosition().x <= 0)
+      {
         dart5->respawn_right();
       }
-      if (dart6->get_sprite().getPosition().x <= 0) {
+      if (dart6->get_sprite().getPosition().x <= 0)
+      {
         dart6->respawn_right();
       }
       dart1->move_left();
