@@ -8,7 +8,10 @@
 
 using namespace sf;
 
+
+
 int main() {
+  int count = 0;
   // create the window with size "n x m" pixels
   RenderWindow window(VideoMode(1500, 1000), "Monkey King");
   window.setFramerateLimit(
@@ -147,12 +150,49 @@ int main() {
 
       deltaTime -= frameTime;
 
-      std::cout << player->hit(dart1) << std::endl;
-      std::cout << player->hit(dart2) << std::endl;
-      std::cout << player->hit(dart3) << std::endl;
-      std::cout << player->hit(dart4) << std::endl;
-      std::cout << player->hit(dart5) << std::endl;
-      std::cout << player->hit(dart6) << std::endl;
+      if (player->hit(dart1)) {
+        window.close();
+      }
+      if (player->hit(dart2)) {
+        window.close();
+      }
+      if (player->hit(dart3)) {
+        window.close();
+      }
+      if (player->hit(dart4)) {
+        window.close();
+      }
+      if (player->hit(dart5)) {
+        window.close();
+      }
+      if (player->hit(dart6)) {
+        window.close();
+      }
+
+      
+      // if (player->on_coin()) {
+      //   count++;
+      // }
+      // switch (count) {
+      //   case 1:
+      //     delete coin1;
+      //     break;
+      //   case 2:
+      //     delete coin2;
+      //     break;
+      //   case 3:
+      //     delete coin3;
+      //     break;
+      //   case 4:
+      //     delete coin4;
+      //     break;
+      //   case 5:
+      //     delete coin5;
+      //     break;
+
+      //   default:
+      //     break;
+      // }
 
       std::cout << "Coin: " << player->on_coin() << std::endl;
     }
@@ -196,11 +236,11 @@ int main() {
     // window.draw(bandage2->get_sprite());
 
     // -- COINS --
-    window.draw(coin1->get_sprite());
-    window.draw(coin2->get_sprite());
-    window.draw(coin3->get_sprite());
-    window.draw(coin4->get_sprite());
-    window.draw(coin5->get_sprite());
+    // window.draw(coin1->get_sprite());
+    // window.draw(coin2->get_sprite());
+    // window.draw(coin3->get_sprite());
+    // window.draw(coin4->get_sprite());
+    // window.draw(coin5->get_sprite());
 
     // -- FINISH FLAG --
     window.draw(finish->get_sprite());
@@ -235,11 +275,31 @@ int main() {
   delete platform4;
 
   // -- COINS --
-  delete coin1;
-  delete coin2;
-  delete coin3;
-  delete coin4;
-  delete coin5;
+  // if (count == 0) {
+  //   delete coin1;
+  //   delete coin2;
+  //   delete coin3;
+  //   delete coin4;
+  //   delete coin5;
+  // }
+  // if (count == 1) {
+  //   delete coin2;
+  //   delete coin3;
+  //   delete coin4;
+  //   delete coin5;
+  // }
+  // if (count == 2) {
+  //   delete coin3;
+  //   delete coin4;
+  //   delete coin5;
+  // }
+  // if (count == 3) {
+  //   delete coin4;
+  //   delete coin5;
+  // }
+  // if (count == 4) {
+  //   delete coin5;
+  // }
 
   // -- MEDKIT --
   delete medkit;
