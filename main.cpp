@@ -148,7 +148,14 @@ int main() {
 
       deltaTime -= frameTime;
 
-      std::cout << player->on_platform() << std::endl;
+      std::cout << player->hit(dart1) << std::endl;
+      std::cout << player->hit(dart2) << std::endl;
+      std::cout << player->hit(dart3) << std::endl;
+      std::cout << player->hit(dart4) << std::endl;
+      std::cout << player->hit(dart5) << std::endl;
+      std::cout << player->hit(dart6) << std::endl;
+
+      std::cout << "Coin: " << player->on_coin() << std::endl;
     }
 
     if (!player->on_ladder() && player->on_platform()) {
