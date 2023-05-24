@@ -116,6 +116,7 @@ int main() {
       }
       if (Keyboard::isKeyPressed(Keyboard::W)) {
         
+        
         player->move_up();
       }
 
