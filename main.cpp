@@ -63,7 +63,7 @@ int main() {
 
   // -- CHARACTERS --
   // Player - 1 player
-  Player* player = new Player(100, 0.3, 100, 967, 80, 60,
+  Player* player = new Player(100, 1, 100, 967, 80, 60,
                               "Textures/mario_right.png");  // position set
 
   // -- Enemy --
