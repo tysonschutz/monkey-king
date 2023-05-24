@@ -34,10 +34,10 @@ int main()
         std::cout << "set_movement_speed() test failed." << std::endl;
     }
 
-    float XCharMove = 5
+    // float XCharMove = 5
 
-        // Test move_right() method
-        float initialX = character.get_x_pos();
+    // Test move_right() method
+    float initialX = character.get_x_pos();
     character.move_right();
     float newX = character.get_x_pos();
     if (FloatEquals(newX, initialX + character.get_x_pos()))
