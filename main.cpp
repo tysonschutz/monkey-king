@@ -116,7 +116,7 @@ int main() {
       }
       if (Keyboard::isKeyPressed(Keyboard::W)) {
         
-        
+
         player->move_up();
       }
 
@@ -175,6 +175,10 @@ int main() {
         window.close();
       }
       if (player->hit(dart6)) {
+        window.close();
+      }
+
+      if (player->on_finish()) {
         window.close();
       }
 
