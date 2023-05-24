@@ -1,8 +1,10 @@
-#ifndef PLAYER
-#define PLAYER
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "Character.h"
-#include "Enemy.h"
+#include "Dart.h"
+
+class Dart;
 
 class Player : public Character {
   private:
@@ -15,8 +17,10 @@ class Player : public Character {
     
     bool on_coin();
     bool on_finish();
-    // bool hit(Dart* dart);
+    bool hit(Dart* dart);
     bool on_ladder();
+    bool on_platform();
+    void jump();
 
     ~Player();
 };

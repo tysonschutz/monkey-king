@@ -1,10 +1,10 @@
-#ifndef CHARACTER
-#define CHARACTER
+#ifndef CHARACTER_H
+#define CHARACTER_H
 
 #include "Entity.h"
 
 class Character : public Entity {
-  private:
+  protected:
     float movement_speed;
   public:
     Character(float movement_speed, float x_pos, float y_pos, int height, int width, std::string texture_name);
