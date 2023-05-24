@@ -18,27 +18,27 @@ int Player::get_health() { return health; };
 void Player::set_health(int _health) { health = _health; };
 
 bool Player::on_coin() {
-  if (((sprite.getPosition().x > 1252) && ((sprite.getPosition().x < 1348)) &&
-       ((sprite.getPosition().y <= 967) && (sprite.getPosition().y >= 717)))) {
+  if (((sprite.getPosition().x > 335) && ((sprite.getPosition().x < 365)) &&
+       ((sprite.getPosition().y <= 757) && (sprite.getPosition().y >= 717)))) {
     return true;
-  } else if (((sprite.getPosition().x > 152) &&
-              (sprite.getPosition().x < 248)) &&
-             ((sprite.getPosition().y <= 717) &&
+  } else if (((sprite.getPosition().x > 185) &&
+              (sprite.getPosition().x < 215)) &&
+             ((sprite.getPosition().y <= 507) &&
               (sprite.getPosition().y >= 467))) {
     return true;
-  } else if (((sprite.getPosition().x > 1152) &&
-              (sprite.getPosition().x < 1248)) &&
-             ((sprite.getPosition().y <= 467) &&
+  } else if (((sprite.getPosition().x > 935) &&
+              (sprite.getPosition().x < 965)) &&
+             ((sprite.getPosition().y <= 507) &&
+              (sprite.getPosition().y >= 467))) {
+    return true;
+  } else if (((sprite.getPosition().x > 985) &&
+              (sprite.getPosition().x < 1015)) &&
+             ((sprite.getPosition().y <= 257) &&
               (sprite.getPosition().y >= 217))) {
     return true;
-  } else if (((sprite.getPosition().x > 1152) &&
-              (sprite.getPosition().x < 1248)) &&
-             ((sprite.getPosition().y <= 467) &&
-              (sprite.getPosition().y >= 217))) {
-    return true;
-  } else if (((sprite.getPosition().x > 1152) &&
-              (sprite.getPosition().x < 1248)) &&
-             ((sprite.getPosition().y <= 467) &&
+  } else if (((sprite.getPosition().x > 335) &&
+              (sprite.getPosition().x < 365)) &&
+             ((sprite.getPosition().y <= 257) &&
               (sprite.getPosition().y >= 217))) {
     return true;
   }
