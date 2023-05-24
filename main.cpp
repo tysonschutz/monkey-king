@@ -110,6 +110,14 @@ int main() {
         window.draw(player->get_sprite());
         player->move_left();
       }
+      if (Keyboard::isKeyPressed(Keyboard::S)) {
+        
+        player->move_down();
+      }
+      if (Keyboard::isKeyPressed(Keyboard::W)) {
+        
+        player->move_up();
+      }
 
       if (player->on_ladder()) {
         if (Keyboard::isKeyPressed(Keyboard::W)) {
