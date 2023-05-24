@@ -67,12 +67,12 @@ int main() {
 
   // -- Enemy --
   // DARTS - 6 total
-  Dart *dart1 = new Dart(15, 1, 1400, 897, 10, 50, "Textures/dart_left.png");
-  Dart *dart2 = new Dart(15, 1, 100, 647, 10, 50, "Textures/dart_right.png");
-  Dart *dart3 = new Dart(15, 1, 1400, 647, 10, 50, "Textures/dart_left.png");
-  Dart *dart4 = new Dart(15, 1, 100, 397, 10, 50, "Textures/dart_right.png");
-  Dart *dart5 = new Dart(15, 1, 1400, 397, 10, 50, "Textures/dart_left.png");
-  Dart *dart6 = new Dart(15, 1, 1400, 147, 10, 50, "Textures/dart_left.png");
+  Dart *dart1 = new Dart(15, 1, 1400, 917, 10, 50, "Textures/dart_left.png");
+  Dart *dart2 = new Dart(15, 1, 100, 667, 10, 50, "Textures/dart_right.png");
+  Dart *dart3 = new Dart(15, 1, 1400, 667, 10, 50, "Textures/dart_left.png");
+  Dart *dart4 = new Dart(15, 1, 100, 417, 10, 50, "Textures/dart_right.png");
+  Dart *dart5 = new Dart(15, 1, 1400, 417, 10, 50, "Textures/dart_left.png");
+  Dart *dart6 = new Dart(15, 1, 1400, 167, 10, 50, "Textures/dart_left.png");
 
   // Define the desired frame rate
   const int frameRate = 120;
@@ -94,9 +94,17 @@ int main() {
     // Handle player movement
     while (deltaTime >= frameTime) {
       if (Keyboard::isKeyPressed(Keyboard::D)) {
+        Texture player_right;
+        player_right.loadFromFile("Textures/mario_right.png");
+        player->get_sprite().setTexture(player_right);
+        window.draw(player->get_sprite());
         player->move_right();
       }
       if (Keyboard::isKeyPressed(Keyboard::A)) {
+        Texture player_left;
+        player_left.loadFromFile("Textures/mario_left.png");
+        player->get_sprite().setTexture(player_left);
+        window.draw(player->get_sprite());
         player->move_left();
       }
       if (!player->on_ladder() && player->on_platform()) {
@@ -110,7 +118,7 @@ int main() {
           window.draw(player->get_sprite());
           player->get_sprite().move(0, -10);
           window.draw(player->get_sprite());
-          // downward movement
+        if (Event::KeyReleased)
           player->get_sprite().move(0, 10);
           window.draw(player->get_sprite());
           player->get_sprite().move(0, 20);
@@ -130,6 +138,7 @@ int main() {
           player->move_down();
         }
       }
+
       // dart respawn
       if (dart1->get_sprite().getPosition().x <= 0) {
         dart1->respawn_right();
