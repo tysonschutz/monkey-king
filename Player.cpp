@@ -81,14 +81,26 @@ bool Player::on_ladder() {
   return false;
 };
 
-bool Player::on_platform() {
+bool Player::on_platform1() {
   if (sprite.getPosition().y == 967) {
     return true;
   }
+}
+
+bool Player::on_platform2() {
   if (sprite.getPosition().y == 717) {
     return true;
   }
+}
+
+bool Player::on_platform3() {
   if (sprite.getPosition().y == 467) {
+    return true;
+  }
+  return false;
+}
+bool Player::on_platform4() {
+  if (sprite.getPosition().y == 217) {
     return true;
   }
   return false;
@@ -96,10 +108,8 @@ bool Player::on_platform() {
 
 void Player::jump() {
   // upward movement
-  sprite.move(0,-3);
-  
+  sprite.move(0, -3);
 }
-
 
 Player::~Player(){
 
