@@ -8,8 +8,6 @@
 
 using namespace sf;
 
-
-
 int main() {
   int count = 0;
   // create the window with size "n x m" pixels
@@ -28,28 +26,6 @@ int main() {
       new Entity(750, 500, 33, 1400, "Textures/platform.png");  // position set
   Entity *platform4 =
       new Entity(750, 250, 33, 1400, "Textures/platform.png");  // position set
-
-  // MEDKITS - create 1 medkit
-  Entity *medkit =
-      new Entity(750, 467, 50, 50, "Textures/medkit.png");  // position set
-
-  // BANDAGES - create 2 bandages
-  Entity *bandage1 =
-      new Entity(750, 717, 45, 80, "Textures/bandages.png");  // position set
-  Entity *bandage2 =
-      new Entity(750, 217, 45, 80, "Textures/bandages.png");  // position set
-
-  // COINS - 5 coins (changes each platform)
-  Entity *coin1 =
-      new Entity(350, 717, 40, 29, "Textures/coin.png");  // position set
-  Entity *coin2 =
-      new Entity(200, 467, 40, 29, "Textures/coin.png");  // position set
-  Entity *coin3 =
-      new Entity(950, 467, 40, 29, "Textures/coin.png");  // position set
-  Entity *coin4 =
-      new Entity(1000, 217, 40, 29, "Textures/coin.png");  // position set
-  Entity *coin5 =
-      new Entity(350, 217, 40, 29, "Textures/coin.png");  // position set
 
   // FINISH - create 1 finish
   Entity *finish =
@@ -110,10 +86,13 @@ int main() {
         window.draw(player->get_sprite());
         player->move_left();
       }
-      if (Keyboard::isKeyPressed(Keyboard::S)) {
-        
-        player->move_down();
+      if (!player->on_platform()) {
+        if (Keyboard::isKeyPressed(Keyboard::S)) {
+          
+          player->move_down();
+        }
       }
+
       if (Keyboard::isKeyPressed(Keyboard::W)) {
         
 
@@ -181,33 +160,6 @@ int main() {
       if (player->on_finish()) {
         window.close();
       }
-
-      
-      // if (player->on_coin()) {
-      //   count++;
-      // }
-      // switch (count) {
-      //   case 1:
-      //     delete coin1;
-      //     break;
-      //   case 2:
-      //     delete coin2;
-      //     break;
-      //   case 3:
-      //     delete coin3;
-      //     break;
-      //   case 4:
-      //     delete coin4;
-      //     break;
-      //   case 5:
-      //     delete coin5;
-      //     break;
-
-      //   default:
-      //     break;
-      // }
-
-      std::cout << "Coin: " << player->on_coin() << std::endl;
     }
 
     if (!player->on_ladder() && player->on_platform()) {
@@ -241,20 +193,6 @@ int main() {
     window.draw(platform3->get_sprite());
     window.draw(platform4->get_sprite());
 
-    // // -- MEDKIT --
-    // window.draw(medkit->get_sprite());
-
-    // // -- BANDAGES --
-    // window.draw(bandage1->get_sprite());
-    // window.draw(bandage2->get_sprite());
-
-    // -- COINS --
-    // window.draw(coin1->get_sprite());
-    // window.draw(coin2->get_sprite());
-    // window.draw(coin3->get_sprite());
-    // window.draw(coin4->get_sprite());
-    // window.draw(coin5->get_sprite());
-
     // -- FINISH FLAG --
     window.draw(finish->get_sprite());
 
@@ -286,40 +224,6 @@ int main() {
   delete platform2;
   delete platform3;
   delete platform4;
-
-  // -- COINS --
-  // if (count == 0) {
-  //   delete coin1;
-  //   delete coin2;
-  //   delete coin3;
-  //   delete coin4;
-  //   delete coin5;
-  // }
-  // if (count == 1) {
-  //   delete coin2;
-  //   delete coin3;
-  //   delete coin4;
-  //   delete coin5;
-  // }
-  // if (count == 2) {
-  //   delete coin3;
-  //   delete coin4;
-  //   delete coin5;
-  // }
-  // if (count == 3) {
-  //   delete coin4;
-  //   delete coin5;
-  // }
-  // if (count == 4) {
-  //   delete coin5;
-  // }
-
-  // -- MEDKIT --
-  delete medkit;
-
-  // -- BANDAGES --
-  delete bandage1;
-  delete bandage2;
 
   // -- FINISH FLAG --
   delete finish;
