@@ -85,12 +85,14 @@ bool Player::on_platform1() {
   if (sprite.getPosition().y == 967) {
     return true;
   }
+  return false;
 }
 
 bool Player::on_platform2() {
   if (sprite.getPosition().y == 717) {
     return true;
   }
+  return false;
 }
 
 bool Player::on_platform3() {
