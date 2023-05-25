@@ -96,15 +96,8 @@ bool Player::on_platform() {
 
 void Player::jump() {
   // upward movement
-  sprite.move(0,-40);
-  sprite.move(0,-30);
-  sprite.move(0,-20);
-  sprite.move(0,-10);
-  // downward movement
-  sprite.move(0,10);
-  sprite.move(0,20);
-  sprite.move(0,30);
-  sprite.move(0,40);
+  sprite.move(0,-3);
+  
 }
 
 

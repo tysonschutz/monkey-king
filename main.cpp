@@ -96,7 +96,7 @@ int main() {
       if (Keyboard::isKeyPressed(Keyboard::W)) {
         
 
-        player->move_up();
+        player->jump();
       }
 
       if (player->on_ladder()) {
