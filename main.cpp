@@ -87,10 +87,9 @@ int main() {
         player->move_left();
       }
       if (!player->on_platform()) {
-        if (Keyboard::isKeyPressed(Keyboard::S)) {
-          
+                 
           player->move_down();
-        }
+        
       }
       
 
