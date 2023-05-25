@@ -86,24 +86,13 @@ int main() {
         window.draw(player->get_sprite());
         player->move_left();
       }
-      if (!player->on_platform1()) {
+      if (!player->on_platform()) {
         if (Keyboard::isKeyPressed(Keyboard::S)) {
           
           player->move_down();
         }
       }
-      if (!player->on_platform2()) {
-        if (Keyboard::isKeyPressed(Keyboard::S)) {
-          
-          player->move_down();
-        }
-      }
-      if (!player->on_platform3()) {
-        if (Keyboard::isKeyPressed(Keyboard::S)) {
-          
-          player->move_down();
-        }
-      }
+      
 
       if (Keyboard::isKeyPressed(Keyboard::W)) {
         

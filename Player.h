@@ -19,9 +19,7 @@ class Player : public Character {
     bool on_finish();
     bool hit(Dart* dart);
     bool on_ladder();
-    bool on_platform1();
-    bool on_platform2();
-    bool on_platform3();
+    bool on_platform();
     void jump();
 
     ~Player();
