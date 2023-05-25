@@ -86,21 +86,7 @@ int main() {
         window.draw(player->get_sprite());
         player->move_left();
       }
-      if (!player->on_platform1()) {
-                 
-          player->move_down();
-        
-      }
-      if (!player->on_platform2()) {
-                 
-          player->move_down();
-        
-      }
-      if (!player->on_platform3()) {
-                 
-          player->move_down();
-        
-      }if (!player->on_platform4()) {
+      if (!player->on_platform()) {
                  
           player->move_down();
         
