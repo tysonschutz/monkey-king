@@ -81,18 +81,30 @@ bool Player::on_ladder() {
   return false;
 };
 
-bool Player::on_platform() {
+bool Player::on_platform1() {
   if (sprite.getPosition().y == 967) {
     return true;
   }
-  if (sprite.getPosition().y == 717) {
+  
+  
+  return false;
+}
+
+bool Player::on_platform2() {if (sprite.getPosition().y == 717) {
     return true;
   }
+  return false;
+  }
+  
+
+
+bool Player::on_platform3() {
   if (sprite.getPosition().y == 467) {
     return true;
   }
   return false;
 }
+
 
 void Player::jump() {
   // upward movement

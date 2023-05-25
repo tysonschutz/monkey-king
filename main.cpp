@@ -86,7 +86,19 @@ int main() {
         window.draw(player->get_sprite());
         player->move_left();
       }
-      if (!player->on_platform()) {
+      if (!player->on_platform1()) {
+        if (Keyboard::isKeyPressed(Keyboard::S)) {
+          
+          player->move_down();
+        }
+      }
+      if (!player->on_platform2()) {
+        if (Keyboard::isKeyPressed(Keyboard::S)) {
+          
+          player->move_down();
+        }
+      }
+      if (!player->on_platform3()) {
         if (Keyboard::isKeyPressed(Keyboard::S)) {
           
           player->move_down();
@@ -162,27 +174,27 @@ int main() {
       }
     }
 
-    if (!player->on_ladder() && player->on_platform()) {
-      if (Keyboard::isKeyPressed(Keyboard::W)) {
-        // upward movement
-        player->get_sprite().move(0, -40);
-        window.draw(player->get_sprite());
-        player->get_sprite().move(0, -30);
-        window.draw(player->get_sprite());
-        player->get_sprite().move(0, -20);
-        window.draw(player->get_sprite());
-        player->get_sprite().move(0, -10);
-        window.draw(player->get_sprite());
-        if (Event::KeyReleased) player->get_sprite().move(0, 10);
-        window.draw(player->get_sprite());
-        player->get_sprite().move(0, 20);
-        window.draw(player->get_sprite());
-        player->get_sprite().move(0, 30);
-        window.draw(player->get_sprite());
-        player->get_sprite().move(0, 40);
-        window.draw(player->get_sprite());
-      }
-    }
+    // if (!player->on_ladder() && player->on_platform()) {
+    //   if (Keyboard::isKeyPressed(Keyboard::W)) {
+    //     // upward movement
+    //     player->get_sprite().move(0, -40);
+    //     window.draw(player->get_sprite());
+    //     player->get_sprite().move(0, -30);
+    //     window.draw(player->get_sprite());
+    //     player->get_sprite().move(0, -20);
+    //     window.draw(player->get_sprite());
+    //     player->get_sprite().move(0, -10);
+    //     window.draw(player->get_sprite());
+    //     if (Event::KeyReleased) player->get_sprite().move(0, 10);
+    //     window.draw(player->get_sprite());
+    //     player->get_sprite().move(0, 20);
+    //     window.draw(player->get_sprite());
+    //     player->get_sprite().move(0, 30);
+    //     window.draw(player->get_sprite());
+    //     player->get_sprite().move(0, 40);
+    //     window.draw(player->get_sprite());
+    //   }
+    // }
 
     window.clear();
 
